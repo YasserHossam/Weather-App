@@ -1,8 +1,8 @@
 package com.task.weatherapp.domain.usecase
 
 import com.task.weatherapp.common.scheduler.SchedulerProvider
-import com.task.weatherapp.domain.models.City
-import com.task.weatherapp.domain.repos.CitiesRepository
+import com.task.weatherapp.domain.model.City
+import com.task.weatherapp.domain.repo.CitiesRepository
 import kotlinx.coroutines.withContext
 
 class SearchCitiesUseCase(

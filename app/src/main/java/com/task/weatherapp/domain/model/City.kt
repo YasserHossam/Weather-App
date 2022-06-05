@@ -1,4 +1,4 @@
-package com.task.weatherapp.domain.models
+package com.task.weatherapp.domain.model
 
 data class City(
     val id: Int,

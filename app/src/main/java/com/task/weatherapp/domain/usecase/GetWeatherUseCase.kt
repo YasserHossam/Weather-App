@@ -1,8 +1,8 @@
 package com.task.weatherapp.domain.usecase
 
 import com.task.weatherapp.common.scheduler.SchedulerProvider
-import com.task.weatherapp.domain.models.Weather
-import com.task.weatherapp.domain.repos.WeatherRepository
+import com.task.weatherapp.domain.model.Weather
+import com.task.weatherapp.domain.repo.WeatherRepository
 import kotlinx.coroutines.withContext
 
 class GetWeatherUseCase(
