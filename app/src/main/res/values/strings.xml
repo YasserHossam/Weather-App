@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Weather App</string>
+
+    <string name="weather_api_base_url">https://openweathermap.org/data/2.5/</string>
+
+    <string name="weather_api_key">439d4b804bc8187953eb36d2a8c26a02</string>
+
+
+</resources>

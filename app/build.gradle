@@ -1,0 +1,70 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+}
+
+android {
+    compileSdk 32
+
+    defaultConfig {
+        applicationId "com.task.weatherapp"
+        minSdk 21
+        targetSdk 32
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+
+    buildFeatures {
+        viewBinding true
+    }
+}
+
+dependencies {
+
+    implementation appDependencies.coreKtx
+    implementation appDependencies.appCompat
+    implementation appDependencies.material
+    implementation appDependencies.constraintLayout
+
+    // Coroutines
+    implementation appDependencies.coroutines
+
+    // LifeCycle
+    implementation appDependencies.viewModel
+    implementation appDependencies.lifecycle
+
+    // Location
+    implementation appDependencies.location
+
+    // Permissions
+    implementation appDependencies.permissionsChecker
+
+    // Dependency Injection (Koin)
+    implementation appDependencies.koin
+
+    // Logging
+    implementation appDependencies.timber
+
+    // Networking
+    implementation appDependencies.retrofit
+    implementation appDependencies.gson
+    implementation appDependencies.retrofitGson
+    implementation appDependencies.retrofitLogging
+
+}
