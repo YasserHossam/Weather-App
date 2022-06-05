@@ -12,5 +12,6 @@ data class SearchCitiesResponse(
     @SerializedName("count")
     val count: Int,
 
+    @SerializedName("list")
     val cities: List<CityRemote>
 )
