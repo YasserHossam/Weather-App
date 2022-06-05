@@ -66,9 +66,6 @@ ext {
             // Location
             location          : "com.google.android.gms:play-services-location:${locationVersion}",
 
-            // Tools
-            permissionsChecker: "com.nabinbhandari.android:permissions:${permissionsCheckerVersion}",
-
             // Dependency Injection (Koin)
             koin              : "io.insert-koin:koin-android:${koinVersion}",
 

@@ -53,7 +53,7 @@ dependencies {
     implementation appDependencies.location
 
     // Permissions
-    implementation appDependencies.permissionsChecker
+    implementation files('libs/permissions-debug.aar')
 
     // Dependency Injection (Koin)
     implementation appDependencies.koin
