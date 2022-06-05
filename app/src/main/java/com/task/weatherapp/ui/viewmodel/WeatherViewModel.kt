@@ -2,14 +2,12 @@ package com.task.weatherapp.ui.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.task.weatherapp.common.BaseMapper
-import com.task.weatherapp.domain.model.City
-import com.task.weatherapp.domain.model.Weather
 import com.task.weatherapp.domain.usecase.GetCurrentLocationUseCase
 import com.task.weatherapp.domain.usecase.GetWeatherUseCase
 import com.task.weatherapp.domain.usecase.SearchCitiesUseCase
+import com.task.weatherapp.ui.mapper.CityModelMapper
+import com.task.weatherapp.ui.mapper.WeatherModelMapper
 import com.task.weatherapp.ui.model.CityModel
-import com.task.weatherapp.ui.model.WeatherModel
 import com.task.weatherapp.ui.utils.PermissionsManager
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -21,8 +19,8 @@ class WeatherViewModel(
     private val searchCitiesUseCase: SearchCitiesUseCase,
     private val getWeatherUseCase: GetWeatherUseCase,
     private val getCurrentLocationUseCase: GetCurrentLocationUseCase,
-    private val citiesMapper: BaseMapper<City, CityModel>,
-    private val weatherMapper: BaseMapper<Weather, WeatherModel>,
+    private val citiesMapper: CityModelMapper,
+    private val weatherMapper: WeatherModelMapper,
     private val locationPermissionsManager: PermissionsManager
 ) : ViewModel() {
 

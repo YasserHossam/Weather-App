@@ -12,7 +12,7 @@ buildscript {
     }
     dependencies {
         classpath appDependencies.gradle
-        classpath appDependencies.kotlinGradle
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.6.21"
     }
 }
 
