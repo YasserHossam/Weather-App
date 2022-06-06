@@ -14,7 +14,8 @@ object WeatherRemoteMapper : BaseMapper<WeatherRemote, Weather>() {
             pressure = input.pressure,
             humidity = input.humidity,
             windSpeed = input.windSpeed,
-            weatherStatus = input.weatherState.state
+            weatherStatus = input.weatherState.firstOrNull()?.state.orEmpty(),
+            clouds = input.clouds
         )
     }
 }

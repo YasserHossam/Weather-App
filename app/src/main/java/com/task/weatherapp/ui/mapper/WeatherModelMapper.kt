@@ -12,7 +12,8 @@ object WeatherModelMapper : BaseMapper<Weather, WeatherModel>() {
             pressure = input.pressure,
             humidity = input.humidity,
             windSpeed = input.windSpeed,
-            weatherStatus = input.weatherStatus
+            weatherState = input.weatherStatus,
+            clouds = input.clouds
         )
     }
 

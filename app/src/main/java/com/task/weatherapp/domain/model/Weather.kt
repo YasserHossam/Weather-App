@@ -6,5 +6,6 @@ data class Weather(
     val pressure: Double,
     val humidity: Double,
     val windSpeed: Double,
-    val weatherStatus: String
+    val weatherStatus: String,
+    val clouds: Int
 )

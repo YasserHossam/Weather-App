@@ -18,8 +18,11 @@ data class WeatherRemote(
     @SerializedName("wind_speed")
     val windSpeed: Double,
 
+    @SerializedName("clouds")
+    val clouds: Int,
+
     @SerializedName("weather")
-    val weatherState: WeatherState
+    val weatherState: List<WeatherState>
 )
 
 data class WeatherState(
