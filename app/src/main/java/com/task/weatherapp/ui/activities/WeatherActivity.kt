@@ -1,6 +1,7 @@
 package com.task.weatherapp.ui.activities
 
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -71,14 +72,27 @@ class WeatherActivity : AppCompatActivity(), AndroidScopeComponent {
     }
 
     private fun handleState(state: WeatherViewState) {
+        binding.progress.gone()
         when (state) {
             is WeatherViewState.CitiesData -> handleCitiesState(state.cities)
             is WeatherViewState.WeatherData -> handleWeatherState(state.weather)
-            WeatherViewState.Error.Network -> {}
-            WeatherViewState.Error.Permission -> {}
-            WeatherViewState.Error.Server -> {}
+            WeatherViewState.Error.Network -> Toast.makeText(
+                this,
+                getString(R.string.activity_weather_network_error),
+                Toast.LENGTH_LONG
+            ).show()
+            WeatherViewState.Error.Permission -> Toast.makeText(
+                this,
+                getString(R.string.activity_weather_permission_error),
+                Toast.LENGTH_LONG
+            ).show()
+            WeatherViewState.Error.Server -> Toast.makeText(
+                this,
+                getString(R.string.activity_weather_server_error),
+                Toast.LENGTH_LONG
+            ).show()
             WeatherViewState.Idle -> {}
-            WeatherViewState.Loading -> {}
+            WeatherViewState.Loading -> binding.progress.show()
         }
     }
 
@@ -91,12 +105,16 @@ class WeatherActivity : AppCompatActivity(), AndroidScopeComponent {
     private fun handleWeatherState(weather: WeatherModel) {
         binding.recyclerCities.gone()
         binding.layoutWeatherDetails.show()
-        binding.textTemperature.text = getString(R.string.activity_weather_temperature_value, weather.temperature.toInt())
+        binding.textTemperature.text =
+            getString(R.string.activity_weather_temperature_value, weather.temperature.toInt())
         binding.textMainWeather.text = weather.weatherState
         binding.textPressure.text = weather.pressure.toString()
-        binding.textHumidity.text = getString(R.string.activity_weather_humidity_value, weather.humidity.toInt())
-        binding.textClouds.text = getString(R.string.activity_weather_clouds_value, weather.clouds.toInt())
-        binding.textWindSpeed.text = getString(R.string.activity_weather_wind_speed_value, weather.windSpeed)
+        binding.textHumidity.text =
+            getString(R.string.activity_weather_humidity_value, weather.humidity.toInt())
+        binding.textClouds.text =
+            getString(R.string.activity_weather_clouds_value, weather.clouds.toInt())
+        binding.textWindSpeed.text =
+            getString(R.string.activity_weather_wind_speed_value, weather.windSpeed)
     }
 
 }

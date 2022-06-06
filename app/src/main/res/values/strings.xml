@@ -16,5 +16,8 @@
     <string name="activity_weather_clouds_value">%d Clouds</string>
     <string name="activity_weather_wind_speed_value">%f m/s</string>
     <string name="item_city_name">%s, %s</string>
+    <string name="activity_weather_network_error">Network error, please try again later</string>
+    <string name="activity_weather_permission_error">Permission not given, please open settings and give the location permission</string>
+    <string name="activity_weather_server_error">Server error, please try again later</string>
 
 </resources>
