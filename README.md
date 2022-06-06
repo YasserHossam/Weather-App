@@ -23,3 +23,8 @@
 
 ## language
 - Kotlin
+
+## Prerequisites 
+- Please add the API key and the base url for the weather API in local.properties file
+- Key for api key is **WEATHER_API_KEY**
+- Key for base url is **WEATHER_API_BASE_URL**
