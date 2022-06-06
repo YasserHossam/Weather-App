@@ -3,6 +3,24 @@ plugins {
     id 'kotlin-android'
 }
 
+def localProperties = new Properties()
+def localPropertiesFile = rootProject.file('local.properties')
+if (localPropertiesFile.exists()) {
+    localPropertiesFile.withReader('UTF-8') { reader ->
+        localProperties.load(reader)
+    }
+} else {
+    throw new GradleException("local.properties file not found. Create local.properties file in root project.")
+}
+
+if (localProperties['WEATHER_API_KEY'] == null) {
+    throw new GradleException("WEATHER_API_KEY not found. Define WEATHER_API_KEY in the local.properties file.")
+}
+
+if (localProperties['WEATHER_API_BASE_URL'] == null) {
+    throw new GradleException("WEATHER_API_BASE_URL not found. Define WEATHER_API_BASE_URL in the local.properties file.")
+}
+
 android {
     compileSdk 32
 
@@ -17,8 +35,17 @@ android {
     }
 
     buildTypes {
-        release {
+        debug {
+            buildConfigField 'String', 'WEATHER_API_KEY', '"' + localProperties['WEATHER_API_KEY'] + '"'
+            buildConfigField 'String', 'WEATHER_API_BASE_URL', '"' + localProperties['WEATHER_API_BASE_URL'] + '"'
+
             minifyEnabled false
+        }
+        release {
+            buildConfigField 'String', 'WEATHER_API_KEY', '"' + localProperties['WEATHER_API_KEY'] + '"'
+            buildConfigField 'String', 'WEATHER_API_BASE_URL', '"' + localProperties['WEATHER_API_BASE_URL'] + '"'
+
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }

@@ -1,5 +1,6 @@
 package com.task.weatherapp.common.di
 
+import com.task.weatherapp.BuildConfig
 import com.task.weatherapp.R
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
@@ -22,7 +23,7 @@ val networkingModule = module {
 
     single(named(authenticationInterceptorName)) {
         val apiKeyName = "appid"
-        val apiKey = androidContext().getString(R.string.weather_api_key)
+        val apiKey = BuildConfig.WEATHER_API_KEY
 
         Interceptor { chain ->
             chain.run {
@@ -52,7 +53,7 @@ val networkingModule = module {
 
     single<Retrofit> {
         Retrofit.Builder()
-            .baseUrl(androidContext().getString(R.string.weather_api_base_url))
+            .baseUrl(BuildConfig.WEATHER_API_BASE_URL)
             .addConverterFactory(get())
             .client(get())
             .build()
