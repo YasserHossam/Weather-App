@@ -38,6 +38,10 @@ class WeatherActivity : AppCompatActivity(), AndroidScopeComponent {
         setupRecycler()
         setupObservers()
         setupListeners()
+    }
+
+    override fun onStart() {
+        super.onStart()
         viewModel.processIntent(WeatherIntent.GetCurrentLocationWeather)
     }
 
