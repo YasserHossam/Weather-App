@@ -1,9 +1,20 @@
 <resources>
     <string name="app_name">Weather App</string>
 
+    <!-- TODO: security-->
     <string name="weather_api_base_url">https://openweathermap.org/data/2.5/</string>
-
     <string name="weather_api_key">439d4b804bc8187953eb36d2a8c26a02</string>
 
+    <string name="activity_weather_search_hint">Search cities</string>
+    <string name="activity_weather_detail">Detail</string>
+    <string name="activity_weather_pressure">Pressure</string>
+    <string name="activity_weather_humidity">Humidity</string>
+    <string name="activity_weather_clouds">Clouds</string>
+    <string name="activity_weather_wind_speed">Wind Speed</string>
+    <string name="activity_weather_temperature_value">%d\u2103</string>
+    <string name="activity_weather_humidity_value">%d %%</string>
+    <string name="activity_weather_clouds_value">%d Clouds</string>
+    <string name="activity_weather_wind_speed_value">%f m/s</string>
+    <string name="item_city_name">%s, %s</string>
 
 </resources>
